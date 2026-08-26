@@ -1,4 +1,4 @@
-use drm::{Baseline, HeavyAbusive, HeavyReasonable, InGen, ProtectionProfile};
+use drm::{Baseline, HeavyAbusive, HeavyReasonable, CodenameDrm, ProtectionProfile};
 use macroquad::prelude::*;
 use sim::Simulation;
 use std::collections::VecDeque;
@@ -9,7 +9,7 @@ const BOID_COUNT: usize = 5000;
 
 enum Mode {
     Baseline,
-    InGen,
+    CodenameDrm,
     HeavyReasonable,
     HeavyAbusive,
 }
@@ -18,7 +18,7 @@ impl Mode {
     fn name(&self) -> &'static str {
         match self {
             Mode::Baseline => "Baseline (No DRM)",
-            Mode::InGen => "InGen (Lightweight)",
+            Mode::CodenameDrm => "Codename DRM (Lightweight)",
             Mode::HeavyReasonable => "Heavy-Reasonable (Sync VM/Thunks)",
             Mode::HeavyAbusive => "Heavy-Abusive (Worst Case)",
         }
@@ -28,7 +28,7 @@ impl Mode {
 fn create_profile(mode: &Mode) -> Box<dyn ProtectionProfile> {
     match mode {
         Mode::Baseline => Box::new(Baseline),
-        Mode::InGen => Box::new(InGen::new()),
+        Mode::CodenameDrm => Box::new(CodenameDrm::new()),
         Mode::HeavyReasonable => Box::new(HeavyReasonable::new()),
         Mode::HeavyAbusive => Box::new(HeavyAbusive::new()),
     }
@@ -57,7 +57,7 @@ async fn main() {
     loop {
         let mut mode_changed = false;
         if is_key_pressed(KeyCode::Key1) { mode = Mode::Baseline; mode_changed = true; }
-        if is_key_pressed(KeyCode::Key2) { mode = Mode::InGen; mode_changed = true; }
+        if is_key_pressed(KeyCode::Key2) { mode = Mode::CodenameDrm; mode_changed = true; }
         if is_key_pressed(KeyCode::Key3) { mode = Mode::HeavyReasonable; mode_changed = true; }
         if is_key_pressed(KeyCode::Key4) { mode = Mode::HeavyAbusive; mode_changed = true; }
 
@@ -114,7 +114,7 @@ async fn main() {
         draw_text(&format!("1% Low Sim Time: {:.2} ms", low1), 20.0, 160.0, 20.0, RED);
         draw_text(&format!("0.1% Low Sim Time: {:.2} ms", low01), 20.0, 180.0, 20.0, RED);
 
-        draw_text("Keys: 1=Baseline, 2=InGen, 3=HeavyReasonable, 4=HeavyAbusive", 20.0, H - 20.0, 20.0, GRAY);
+        draw_text("Keys: 1=Baseline, 2=Codename DRM, 3=HeavyReasonable, 4=HeavyAbusive", 20.0, H - 20.0, 20.0, GRAY);
 
         next_frame().await;
     }

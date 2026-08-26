@@ -1,4 +1,4 @@
-use drm::{Baseline, HeavyAbusive, HeavyReasonable, InGen, AlwaysOnline, VMAntitamper, ProtectionProfile};
+use drm::{Baseline, HeavyAbusive, HeavyReasonable, CodenameDrm, AlwaysOnline, VMAntitamper, ProtectionProfile};
 use sim::Simulation;
 use std::fs::File;
 use std::io::Write;
@@ -57,7 +57,7 @@ fn main() {
     
     let modes: Vec<(&str, Box<dyn ProtectionProfile>)> = vec![
         ("Baseline", Box::new(Baseline)),
-        ("InGen", Box::new(InGen::new())),
+        ("Codename DRM", Box::new(CodenameDrm::new())),
         ("Heavy-Reasonable", Box::new(HeavyReasonable::new())),
         ("Heavy-Abusive", Box::new(HeavyAbusive::new())),
         ("Always-Online", Box::new(AlwaysOnline::new())),

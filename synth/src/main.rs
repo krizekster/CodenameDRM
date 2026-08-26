@@ -92,7 +92,7 @@ fn main() {
     }
 
     // Generate Summary
-    let mut summary = String::from("# InGen DRM vs Market Standard - Synthesized Data Summary\n\n");
+    let mut summary = String::from("# Codename DRM vs Market Standard - Synthesized Data Summary\n\n");
     summary.push_str("This dataset was synthesized from empirical 3D simulation seeds representing 18,000 distinct gameplay sessions across varying genres.\n\n");
     summary.push_str("| DRM Mode | Visual Theme | Global Avg FPS | Global Avg Sim (ms) | Peak Stutter (ms) |\n");
     summary.push_str("|---|---|---|---|---|\n");
@@ -117,7 +117,7 @@ fn main() {
         let avg_sim: f64 = rows.iter().map(|r| r.sim).sum::<f64>() / rows.len() as f64;
         let max_stutter = rows.iter().map(|r| r.low).fold(0.0_f64, f64::max);
         
-        let mode_str = if mode.contains("InGen") { format!("**{}**", mode) } else { mode.to_string() };
+        let mode_str = if mode.contains("Codename DRM") { format!("**{}**", mode) } else { mode.to_string() };
         summary.push_str(&format!("| {} | {} | {:.1} | {:.2} | {:.2} |\n", mode_str, theme, avg_fps, avg_sim, max_stutter));
     }
 

@@ -59,7 +59,7 @@ with open(OUTPUT_FILE, "w", newline="") as f:
     writer.writerows(synthesized_data)
 
 # Generate Statistical Summary Table
-summary_md = "# InGen DRM vs Market Standard - Synthesized Data Summary\n\n"
+summary_md = "# Codename DRM vs Market Standard - Synthesized Data Summary\n\n"
 summary_md += "This dataset was synthesized from empirical 3D simulation seeds representing 18,000 distinct gameplay sessions across varying genres.\n\n"
 summary_md += "| DRM Mode | Visual Theme | Global Avg FPS | Global Avg Sim (ms) | Peak Stutter (ms) |\n"
 summary_md += "|---|---|---|---|---|\n"
@@ -77,8 +77,8 @@ for key, rows in stats.items():
     avg_sim = sum(r["Avg_Sim_ms"] for r in rows) / len(rows)
     max_stutter = max(r["P1_Low_Sim_ms"] for r in rows)
     
-    # Highlight InGen
-    mode_str = f"**{mode}**" if "InGen" in mode else mode
+    # Highlight Codename DRM
+    mode_str = f"**{mode}**" if "Codename DRM" in mode else mode
     
     summary_md += f"| {mode_str} | {theme} | {avg_fps:.1f} | {avg_sim:.2f} | {max_stutter:.2f} |\n"
 

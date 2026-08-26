@@ -39,7 +39,7 @@ impl ProtectionProfile for Baseline {
     }
 }
 
-pub struct InGen {
+pub struct CodenameDrm {
     manifest_thread: Option<std::thread::JoinHandle<()>>,
     key: [u8; 32],
     nonce: [u8; 12],
@@ -48,7 +48,7 @@ pub struct InGen {
     signature: Signature,
 }
 
-impl InGen {
+impl CodenameDrm {
     pub fn new() -> Self {
         // Setup dummy keys and data for benchmarking the cost of crypto
         let bytes: [u8; 32] = rand::random();
@@ -78,7 +78,7 @@ impl InGen {
     }
 }
 
-impl ProtectionProfile for InGen {
+impl ProtectionProfile for CodenameDrm {
     fn on_startup(&mut self) -> Result<(), &'static str> {
         let start_time = Instant::now();
         write_audit_log("AUTH", "Initiating Ed25519 License Signature Verification...");

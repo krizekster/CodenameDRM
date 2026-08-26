@@ -1,4 +1,4 @@
-use drm::{Baseline, HeavyAbusive, HeavyReasonable, InGen, AlwaysOnline, VMAntitamper, ProtectionProfile, TAMPER_FLAG};
+use drm::{Baseline, HeavyAbusive, HeavyReasonable, CodenameDrm, AlwaysOnline, VMAntitamper, ProtectionProfile, TAMPER_FLAG};
 use macroquad::prelude::*;
 use sim::Simulation;
 use std::collections::VecDeque;
@@ -13,7 +13,7 @@ const BOID_COUNT: usize = 5000;
 #[derive(PartialEq, Clone, Copy)]
 enum Mode {
     Baseline,
-    InGen,
+    CodenameDrm,
     HeavyReasonable,
     HeavyAbusive,
     AlwaysOnline,
@@ -41,7 +41,7 @@ impl Mode {
     fn name(&self) -> &'static str {
         match self {
             Mode::Baseline => "Baseline (No DRM)",
-            Mode::InGen => "InGen (Lightweight)",
+            Mode::CodenameDrm => "Codename DRM (Lightweight)",
             Mode::HeavyReasonable => "Heavy-Reasonable (Sync VM/Thunks)",
             Mode::HeavyAbusive => "Heavy-Abusive (Worst Case)",
             Mode::AlwaysOnline => "Always Online (Network micro-stutters)",
@@ -53,7 +53,7 @@ impl Mode {
 fn create_profile(mode: &Mode) -> Box<dyn ProtectionProfile> {
     match mode {
         Mode::Baseline => Box::new(Baseline),
-        Mode::InGen => Box::new(InGen::new()),
+        Mode::CodenameDrm => Box::new(CodenameDrm::new()),
         Mode::HeavyReasonable => Box::new(HeavyReasonable::new()),
         Mode::HeavyAbusive => Box::new(HeavyAbusive::new()),
         Mode::AlwaysOnline => Box::new(AlwaysOnline::new()),
@@ -91,7 +91,7 @@ struct Projectile {
 
 fn window_conf() -> Conf {
     Conf {
-        window_title: "InGen DRM 3D Testbed & Security FPS".to_owned(),
+        window_title: "Codename DRM 3D Testbed & Security FPS".to_owned(),
         window_width: W as i32,
         window_height: H as i32,
         high_dpi: true,
@@ -103,7 +103,7 @@ fn window_conf() -> Conf {
 async fn main() {
     let auto_bench = std::env::args().any(|arg| arg == "--auto-benchmark");
     let mut auto_timer = 0.0;
-    let auto_modes = [Mode::Baseline, Mode::InGen, Mode::HeavyReasonable, Mode::HeavyAbusive, Mode::AlwaysOnline, Mode::VMAntitamper];
+    let auto_modes = [Mode::Baseline, Mode::CodenameDrm, Mode::HeavyReasonable, Mode::HeavyAbusive, Mode::AlwaysOnline, Mode::VMAntitamper];
     let auto_themes = [VisualTheme::Cubes, VisualTheme::VoxelTerrain, VisualTheme::WireframeSpace];
     let mut auto_mode_idx = 0;
     let mut auto_theme_idx = 0;
@@ -324,8 +324,8 @@ async fn main() {
             if draw_button(20.0, 165.0, 130.0, 30.0, "1. Baseline", matches!(mode, Mode::Baseline), cursor_grabbed) || is_key_pressed(KeyCode::Key1) {
                 if !matches!(mode, Mode::Baseline) { log_session(mode.name(), avg, low1); mode = Mode::Baseline; mode_changed = true; }
             }
-            if draw_button(160.0, 165.0, 130.0, 30.0, "2. InGen", matches!(mode, Mode::InGen), cursor_grabbed) || is_key_pressed(KeyCode::Key2) {
-                if !matches!(mode, Mode::InGen) { log_session(mode.name(), avg, low1); mode = Mode::InGen; mode_changed = true; }
+            if draw_button(160.0, 165.0, 130.0, 30.0, "2. Codename DRM", matches!(mode, Mode::CodenameDrm), cursor_grabbed) || is_key_pressed(KeyCode::Key2) {
+                if !matches!(mode, Mode::CodenameDrm) { log_session(mode.name(), avg, low1); mode = Mode::CodenameDrm; mode_changed = true; }
             }
             if draw_button(20.0, 200.0, 130.0, 30.0, "3. Heavy-R", matches!(mode, Mode::HeavyReasonable), cursor_grabbed) || is_key_pressed(KeyCode::Key3) {
                 if !matches!(mode, Mode::HeavyReasonable) { log_session(mode.name(), avg, low1); mode = Mode::HeavyReasonable; mode_changed = true; }

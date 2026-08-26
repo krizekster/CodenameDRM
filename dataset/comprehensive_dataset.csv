@@ -2,9 +2,9 @@ Mode,Theme,Avg_FPS,Avg_Sim_ms,P1_Low_Sim_ms
 Baseline (No DRM),Abstract Cubes,15,59.53,65.03
 Baseline (No DRM),Voxel Terrain,15,59.33,60.44
 Baseline (No DRM),Wireframe Space,15,59.72,64.92
-InGen (Lightweight),Abstract Cubes,15,59.35,63.97
-InGen (Lightweight),Voxel Terrain,15,59.35,62.84
-InGen (Lightweight),Wireframe Space,15,59.57,68.66
+Codename DRM (Lightweight),Abstract Cubes,15,59.35,63.97
+Codename DRM (Lightweight),Voxel Terrain,15,59.35,62.84
+Codename DRM (Lightweight),Wireframe Space,15,59.57,68.66
 Heavy-Reasonable (Sync VM/Thunks),Abstract Cubes,15,59.15,61.42
 Heavy-Reasonable (Sync VM/Thunks),Voxel Terrain,15,59.34,62.52
 Heavy-Reasonable (Sync VM/Thunks),Wireframe Space,15,59.40,62.33

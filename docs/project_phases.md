@@ -1,6 +1,6 @@
-# InGen DRM: Project Implementation Phases
+# Codename DRM: Project Implementation Phases
 
-This document breaks down the entire InGen DRM architecture into discrete, logical phases. This allows you to reconstruct the Git history, push commits one by one, and explain the exact progression of the technology from a basic engine to a fully telemetric, high-performance security product.
+This document breaks down the entire Codename DRM architecture into discrete, logical phases. This allows you to reconstruct the Git history, push commits one by one, and explain the exact progression of the technology from a basic engine to a fully telemetric, high-performance security product.
 
 ---
 
@@ -20,7 +20,7 @@ This document breaks down the entire InGen DRM architecture into discrete, logic
   * Implemented `Baseline` (No DRM).
   * Implemented `HeavyReasonable` and `HeavyAbusive`, simulating synchronous memory hashing on the main thread, representing the traditional anti-tamper bloat that ruins 1% low frametimes.
 
-## Phase 3: The InGen Architecture
+## Phase 3: The Codename DRM Architecture
 **Objective:** Implement our superior, lightweight cryptographic model.
 * **Crate Built:** `drm` (Part 2)
 * **Details:**
@@ -29,12 +29,12 @@ This document breaks down the entire InGen DRM architecture into discrete, logic
   * Introduced the asynchronous background thread model, moving anti-tamper logic completely off the main game thread to eliminate frame-time spikes.
 
 ## Phase 4: Headless Benchmarking & Data Collection
-**Objective:** Mathematically prove InGen's performance superiority.
+**Objective:** Mathematically prove Codename DRM's performance superiority.
 * **Crate Built:** `bench`
 * **Details:**
   * Built a headless runner to execute 1,000-frame tests against all DRM profiles.
   * Implemented rigorous statistical tracking: Averages, P95, P99, 1% Lows, and 0.1% Lows.
-  * Outputs pure empirical data to `benchmark_results.csv`, proving InGen operates identically to the `Baseline`.
+  * Outputs pure empirical data to `benchmark_results.csv`, proving Codename DRM operates identically to the `Baseline`.
 
 ## Phase 5: 3D Visualizer & Crack Simulation
 **Objective:** Visually demonstrate the performance and allow interactive testing of the security features.
@@ -65,7 +65,7 @@ This document breaks down the entire InGen DRM architecture into discrete, logic
 * **Details:**
   * Abstracted the rendering loop into `VisualTheme` architectures.
   * Implemented Abstract Cubes, Voxel Terrain, and Wireframe Space rendering pipelines.
-  * Allowed dynamic swapping via the `M` key, visually proving the decoupled nature of the InGen DRM.
+  * Allowed dynamic swapping via the `M` key, visually proving the decoupled nature of the Codename DRM.
 
 ## Phase 9: Playable FPS Game, HUD & Session Logging
 **Objective:** Evolve the testbed into a fully playable game and implement persistent data tracking for the pitch.

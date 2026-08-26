@@ -1,4 +1,4 @@
-# InGen DRM vs Market Standard - Synthesized Data Summary
+# Codename DRM vs Market Standard - Synthesized Data Summary
 
 This dataset was synthesized from empirical 3D simulation seeds representing 18,000 distinct gameplay sessions across varying genres.
 
@@ -16,9 +16,9 @@ This dataset was synthesized from empirical 3D simulation seeds representing 18,
 | Heavy-Reasonable (Sync VM/Thunks) | Abstract Cubes | 15.0 | 59.14 | 65.42 |
 | Heavy-Reasonable (Sync VM/Thunks) | Voxel Terrain | 15.0 | 59.42 | 67.65 |
 | Heavy-Reasonable (Sync VM/Thunks) | Wireframe Space | 15.0 | 59.39 | 67.44 |
-| **InGen (Lightweight)** | Abstract Cubes | 15.0 | 59.31 | 70.70 |
-| **InGen (Lightweight)** | Voxel Terrain | 15.0 | 59.37 | 68.67 |
-| **InGen (Lightweight)** | Wireframe Space | 15.0 | 59.61 | 84.03 |
+| **Codename DRM (Lightweight)** | Abstract Cubes | 15.0 | 59.31 | 70.70 |
+| **Codename DRM (Lightweight)** | Voxel Terrain | 15.0 | 59.37 | 68.67 |
+| **Codename DRM (Lightweight)** | Wireframe Space | 15.0 | 59.61 | 84.03 |
 | VM-Antitamper (Sync Hash Loop) | Abstract Cubes | 14.0 | 63.67 | 75.87 |
 | VM-Antitamper (Sync Hash Loop) | Voxel Terrain | 14.0 | 63.15 | 72.85 |
 | VM-Antitamper (Sync Hash Loop) | Wireframe Space | 15.0 | 62.90 | 67.04 |

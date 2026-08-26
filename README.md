@@ -1,6 +1,10 @@
-# EFBA26
+# Codename DRM
 
 Rust workspace for DRM research, simulation, benchmarking, packaging/sealing, licensing, demos, and synthesized-data experiments.
+
+## Product identity
+
+**Codename DRM** is Kri Zek’s dedicated digital rights management technology for games. It is currently in beta testing and is integrated into the Majestic Engine development and packaging workflow, so teams using Kri Zek’s proprietary engine can apply the protection layer while building and packaging games.
 
 ## Status
 
