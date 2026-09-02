@@ -1,6 +1,10 @@
 # Codename DRM
 
-Rust workspace for DRM research, simulation, benchmarking, packaging/sealing, licensing, demos, and synthesized-data experiments.
+> **Kri Zek’s experimental game-protection technology and licensing toolkit for the Majestic Engine pipeline.**
+
+Beta research workspace, not a production security guarantee. The Rust workspace implements deterministic DRM experiments, sealing/licensing tools, simulation, benchmarks, demos, and synthesized evidence; the repository still mixes research and productization concerns.
+
+**Repository evidence:** the current default branch includes `Cargo.lock`, `Cargo.toml`, `bench`, `dataset`, `docs`, `drm`, `game`, `game3d`, `license`, `seal-cli`, `sim`, `synth`. The sections below describe the implemented repository boundary; roadmap and research material are called out separately from shipped behavior.
 
 ## Product identity
 
